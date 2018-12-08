@@ -1,0 +1,38 @@
+---
+title: 'POLS 205: Assignment 6'
+author: "Phoebe Racine"
+date: "12/7/2018"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+##Loading Packages
+library(tidyverse)
+library(stargazer)
+
+
+```
+
+
+```{r}
+
+
+NESdata <- read_csv("assign6data.csv")
+
+
+```
+
+
+```{r, results = 'asis'}
+
+modelA <- lm(libcons ~ obamaft, data = NESdata, na.action=na.exclude)
+summary(modelA)
+stargazer(modelA, title = "Political Ideology & Warmth Towards President Obama", align = TRUE)
+
+
+```
+
